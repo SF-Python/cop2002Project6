@@ -1,0 +1,611 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Program Finished Text (Included)
+      id: program-finished-text-included
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Program Finished Text (Included)
+        setup-command: ''
+        command: python project6.py
+        input: ''
+        expected-output: |2-
+
+          Program Completed.
+        comparison-method: contains
+        timeout: 2
+        max-score: 2
+    - name: Program Codes (Included)
+      id: program-codes-included
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Program Codes (Included)
+        setup-command: ''
+        command: python project6.py
+        input: ''
+        expected-output: |-
+          *1002*
+          *1030*
+          *3504*
+          *3840*
+          *3841*
+          *3842*
+          *3650*
+          *3651*
+          *1119*
+          *6625*
+          *6635*
+          *6645*
+          *6623*
+          *6650*
+          *6651*
+          *6652*
+          *3624*
+          *3520*
+          *3330*
+          *3330*
+          *3520*
+          *3624*
+          *6652*
+          *6651*
+          *6650*
+          *6623*
+          *6645*
+          *6635*
+          *6625*
+          *1119*
+          *3651*
+          *3650*
+          *3842*
+          *3841*
+          *3840*
+          *3504*
+          *1030*
+          *1002*
+          *1002*
+          *1030*
+          *1119*
+          *3330*
+          *3504*
+          *3520*
+          *3624*
+          *3650*
+          *3651*
+          *3840*
+          *3841*
+          *3842*
+          *6623*
+          *6625*
+          *6635*
+          *6645*
+          *6650*
+          *6651*
+          *6652*
+          *1030*
+          *3504*
+          *6625*
+          *6635*
+          *1002*
+          *1119*
+          *3520*
+          *3330*
+          *6645*
+          *6623*
+          *3841*
+          *3840*
+          *3842*
+          *6651*
+          *6652*
+          *6650*
+          *3651*
+          *3650*
+          *3624*
+          *6652*
+          *6651*
+          *6650*
+          *6645*
+          *6635*
+          *6625*
+          *6623*
+          *3842*
+          *3841*
+          *3840*
+          *3651*
+          *3650*
+          *3624*
+          *3520*
+          *3504*
+          *3330*
+          *1119*
+          *1030*
+          *1002*
+          *3624*
+          *3650*
+          *3651*
+          *6650*
+          *6652*
+          *6651*
+          *3842*
+          *3840*
+          *3841*
+          *6623*
+          *6645*
+          *3330*
+          *3520*
+          *1119*
+          *1002*
+          *6635*
+          *6625*
+          *3504*
+          *1030*
+          *1002*
+          *1030*
+          *3504*
+          *3840*
+          *3841*
+          *3842*
+          *3650*
+          *3651*
+          *1119*
+          *6625*
+          *6635*
+          *6645*
+        comparison-method: contains
+        timeout: 1
+        max-score: 5
+    - name: Writing to File Statement (Included)
+      id: writing-to-file-statement-included
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Writing to File Statement (Included)
+        setup-command: ''
+        command: python project6.py
+        input: ''
+        expected-output: |2-
+
+          Writing to the file...
+        comparison-method: contains
+        timeout: 2
+        max-score: 2
+    - name: Program Names (Included)
+      id: program-names-included
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Program Names (Included)
+        setup-command: ''
+        command: python project6.py
+        input: ''
+        expected-output: |2-
+               Computer_Science
+               Business_Admin
+               Computer_Information_Technology
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Risk_Management_Track
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Exploring_General_Studies
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Help_Desk_Support_Technician
+               Information_Technology_Support_Specialist
+               Network_Server_Administration
+               Network_Infrastructure
+               Network_Security
+               Programming_and_Analysis_–_Web_Development
+               Health_Information_Technology
+               Health_Services_Management
+               Health_Services_Management
+               Health_Information_Technology
+               Programming_and_Analysis_–_Web_Development
+               Network_Security
+               Network_Infrastructure
+               Network_Server_Administration
+               Information_Technology_Support_Specialist
+               Help_Desk_Support_Technician
+               Computer_Programming_Specialist
+               Computer_Programmer
+               Exploring_General_Studies
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_System_Technology_–_Networking_Server_Administration
+               IT_Security_–_Risk_Management_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Infrastructure_Track
+               Computer_Information_Technology
+               Business_Admin
+               Computer_Science
+               Computer_Science
+               Business_Admin
+               Exploring_General_Studies
+               Health_Services_Management
+               Computer_Information_Technology
+               Health_Information_Technology
+               Programming_and_Analysis_–_Web_Development
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Risk_Management_Track
+               Information_Technology_Support_Specialist
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Help_Desk_Support_Technician
+               Network_Server_Administration
+               Network_Infrastructure
+               Network_Security
+               Business_Admin
+               Computer_Information_Technology
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Computer_Science
+               Exploring_General_Studies
+               Health_Information_Technology
+               Health_Services_Management
+               Help_Desk_Support_Technician
+               Information_Technology_Support_Specialist
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Risk_Management_Track
+               Network_Infrastructure
+               Network_Security
+               Network_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_System_Technology_–_Networking_Server_Administration
+               Programming_and_Analysis_–_Web_Development
+               Network_Security
+               Network_Infrastructure
+               Network_Server_Administration
+               Help_Desk_Support_Technician
+               Computer_Programming_Specialist
+               Computer_Programmer
+               Information_Technology_Support_Specialist
+               IT_Security_–_Risk_Management_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Infrastructure_Track
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_System_Technology_–_Networking_Server_Administration
+               Programming_and_Analysis_–_Web_Development
+               Health_Information_Technology
+               Computer_Information_Technology
+               Health_Services_Management
+               Exploring_General_Studies
+               Business_Admin
+               Computer_Science
+               Programming_and_Analysis_–_Web_Development
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_Server_Administration
+               Network_Security
+               Network_Infrastructure
+               IT_Security_–_Risk_Management_Track
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               Information_Technology_Support_Specialist
+               Help_Desk_Support_Technician
+               Health_Services_Management
+               Health_Information_Technology
+               Exploring_General_Studies
+               Computer_Science
+               Computer_Programming_Specialist
+               Computer_Programmer
+               Computer_Information_Technology
+               Business_Admin
+               Computer_Science
+               Business_Admin
+               Computer_Information_Technology
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Risk_Management_Track
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Exploring_General_Studies
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Help_Desk_Support_Technician
+        comparison-method: contains
+        timeout: 2
+        max-score: 30
+    - name: Initial Text (Included)
+      id: initial-text-included
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Initial Text (Included)
+        setup-command: ''
+        command: python project6.py
+        input: ''
+        expected-output: Processing student input file...
+        comparison-method: contains
+        timeout: 2
+        max-score: 2
+    - name: Overall Text (Exact Output)
+      id: overall-text-exact-output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Overall Text (Exact Output)
+        setup-command: ''
+        command: python project6.py
+        input: ''
+        expected-output: |-
+          Processing student input file...
+          *1002*
+          *1030*
+          *3504*
+          *3840*
+          *3841*
+          *3842*
+          *3650*
+          *3651*
+          *1119*
+          *6625*
+          *6635*
+          *6645*
+          *6623*
+          *6650*
+          *6651*
+          *6652*
+          *3624*
+          *3520*
+          *3330*
+          *3330*
+          *3520*
+          *3624*
+          *6652*
+          *6651*
+          *6650*
+          *6623*
+          *6645*
+          *6635*
+          *6625*
+          *1119*
+          *3651*
+          *3650*
+          *3842*
+          *3841*
+          *3840*
+          *3504*
+          *1030*
+          *1002*
+          *1002*
+          *1030*
+          *1119*
+          *3330*
+          *3504*
+          *3520*
+          *3624*
+          *3650*
+          *3651*
+          *3840*
+          *3841*
+          *3842*
+          *6623*
+          *6625*
+          *6635*
+          *6645*
+          *6650*
+          *6651*
+          *6652*
+          *1030*
+          *3504*
+          *6625*
+          *6635*
+          *1002*
+          *1119*
+          *3520*
+          *3330*
+          *6645*
+          *6623*
+          *3841*
+          *3840*
+          *3842*
+          *6651*
+          *6652*
+          *6650*
+          *3651*
+          *3650*
+          *3624*
+          *6652*
+          *6651*
+          *6650*
+          *6645*
+          *6635*
+          *6625*
+          *6623*
+          *3842*
+          *3841*
+          *3840*
+          *3651*
+          *3650*
+          *3624*
+          *3520*
+          *3504*
+          *3330*
+          *1119*
+          *1030*
+          *1002*
+          *3624*
+          *3650*
+          *3651*
+          *6650*
+          *6652*
+          *6651*
+          *3842*
+          *3840*
+          *3841*
+          *6623*
+          *6645*
+          *3330*
+          *3520*
+          *1119*
+          *1002*
+          *6635*
+          *6625*
+          *3504*
+          *1030*
+          *1002*
+          *1030*
+          *3504*
+          *3840*
+          *3841*
+          *3842*
+          *3650*
+          *3651*
+          *1119*
+          *6625*
+          *6635*
+          *6645*
+
+          Writing to the file...
+               Computer_Science
+               Business_Admin
+               Computer_Information_Technology
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Risk_Management_Track
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Exploring_General_Studies
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Help_Desk_Support_Technician
+               Information_Technology_Support_Specialist
+               Network_Server_Administration
+               Network_Infrastructure
+               Network_Security
+               Programming_and_Analysis_–_Web_Development
+               Health_Information_Technology
+               Health_Services_Management
+               Health_Services_Management
+               Health_Information_Technology
+               Programming_and_Analysis_–_Web_Development
+               Network_Security
+               Network_Infrastructure
+               Network_Server_Administration
+               Information_Technology_Support_Specialist
+               Help_Desk_Support_Technician
+               Computer_Programming_Specialist
+               Computer_Programmer
+               Exploring_General_Studies
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_System_Technology_–_Networking_Server_Administration
+               IT_Security_–_Risk_Management_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Infrastructure_Track
+               Computer_Information_Technology
+               Business_Admin
+               Computer_Science
+               Computer_Science
+               Business_Admin
+               Exploring_General_Studies
+               Health_Services_Management
+               Computer_Information_Technology
+               Health_Information_Technology
+               Programming_and_Analysis_–_Web_Development
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Risk_Management_Track
+               Information_Technology_Support_Specialist
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Help_Desk_Support_Technician
+               Network_Server_Administration
+               Network_Infrastructure
+               Network_Security
+               Business_Admin
+               Computer_Information_Technology
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Computer_Science
+               Exploring_General_Studies
+               Health_Information_Technology
+               Health_Services_Management
+               Help_Desk_Support_Technician
+               Information_Technology_Support_Specialist
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Risk_Management_Track
+               Network_Infrastructure
+               Network_Security
+               Network_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_System_Technology_–_Networking_Server_Administration
+               Programming_and_Analysis_–_Web_Development
+               Network_Security
+               Network_Infrastructure
+               Network_Server_Administration
+               Help_Desk_Support_Technician
+               Computer_Programming_Specialist
+               Computer_Programmer
+               Information_Technology_Support_Specialist
+               IT_Security_–_Risk_Management_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Infrastructure_Track
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_System_Technology_–_Networking_Server_Administration
+               Programming_and_Analysis_–_Web_Development
+               Health_Information_Technology
+               Computer_Information_Technology
+               Health_Services_Management
+               Exploring_General_Studies
+               Business_Admin
+               Computer_Science
+               Programming_and_Analysis_–_Web_Development
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Network_Server_Administration
+               Network_Security
+               Network_Infrastructure
+               IT_Security_–_Risk_Management_Track
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               Information_Technology_Support_Specialist
+               Help_Desk_Support_Technician
+               Health_Services_Management
+               Health_Information_Technology
+               Exploring_General_Studies
+               Computer_Science
+               Computer_Programming_Specialist
+               Computer_Programmer
+               Computer_Information_Technology
+               Business_Admin
+               Computer_Science
+               Business_Admin
+               Computer_Information_Technology
+               IT_Security_–_Infrastructure_Track
+               IT_Security_–_Healthcare_Track
+               IT_Security_–_Risk_Management_Track
+               Network_System_Technology_–_Networking_Server_Administration
+               Network_System_Technology_–_Networking_Infrastructure
+               Exploring_General_Studies
+               Computer_Programmer
+               Computer_Programming_Specialist
+               Help_Desk_Support_Technician
+
+          Program Completed.
+        comparison-method: contains
+        timeout: 2
+        max-score: 60
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        PROGRAM-FINISHED-TEXT-INCLUDED_RESULTS: "${{steps.program-finished-text-included.outputs.result}}"
+        PROGRAM-CODES-INCLUDED_RESULTS: "${{steps.program-codes-included.outputs.result}}"
+        WRITING-TO-FILE-STATEMENT-INCLUDED_RESULTS: "${{steps.writing-to-file-statement-included.outputs.result}}"
+        PROGRAM-NAMES-INCLUDED_RESULTS: "${{steps.program-names-included.outputs.result}}"
+        INITIAL-TEXT-INCLUDED_RESULTS: "${{steps.initial-text-included.outputs.result}}"
+        OVERALL-TEXT-EXACT-OUTPUT_RESULTS: "${{steps.overall-text-exact-output.outputs.result}}"
+      with:
+        runners: program-finished-text-included,program-codes-included,writing-to-file-statement-included,program-names-included,initial-text-included,overall-text-exact-output
